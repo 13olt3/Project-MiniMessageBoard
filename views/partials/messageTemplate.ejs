@@ -1,0 +1,19 @@
+<div>
+  <% messages.forEach((message)=>{ %>
+    <div class="message">
+
+      <p>User: <%= message.user%>
+      </p>
+      <p>Message: <%= message.text %>
+      </p>
+      <p class="timestamp">
+        <%=message.added%>
+      </p>
+      <div class="button-div">
+        <a href="/newMessage/<%=message.msgId%>" class="button-style">Message Details</a>
+      </div>
+
+    </div>
+
+    <%})%>
+</div>

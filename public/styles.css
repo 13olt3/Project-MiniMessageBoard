@@ -1,0 +1,39 @@
+body {
+  padding: 2em;
+}
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+  width: 50%;
+}
+.timestamp {
+  align-self: flex-end;
+  padding-right: 2em;
+  font-size: small;
+}
+.button-div {
+  display: flex;
+}
+.button-style {
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  text-decoration: none; /* Removes the underline */
+  border-radius: 5px;
+  border: 0.5px solid black;
+}
+
+.button-style:hover {
+  box-shadow: 2px 2px grey;
+}
