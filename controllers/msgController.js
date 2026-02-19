@@ -26,4 +26,12 @@ async function getAllMessages(req, res) {
 async function newMessage(req, res) {
   res.render("newMessage", { title: "New Message", links: links });
 }
-module.exports = { getMessageById, getAllMessages, newMessage };
+async function postNewMessage(req, res) {
+  await dbQuery.addNewMessage(req.body.authorName, req.body.messageText);
+
+  res.redirect("/");
+  //     text: req.body.messageText,
+  //     user: req.body.authorName,
+}
+
+module.exports = { getMessageById, getAllMessages, newMessage, postNewMessage };

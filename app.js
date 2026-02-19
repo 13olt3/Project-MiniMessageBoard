@@ -9,10 +9,6 @@ app.set("view engine", "ejs");
 app.use(express.static(assetsPath));
 app.use(express.urlencoded({ extended: true })); // this is to allow the use of form data in url.body.WhateverYourVariableIs
 
-const links = [
-  { href: "/", text: "Index" },
-  { href: "newMessage", text: "New Message" },
-];
 // app.get("/", (req, res) => {
 //   res.render("index", {
 //     title: "Mini Messageboard",

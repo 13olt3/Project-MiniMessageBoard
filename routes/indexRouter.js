@@ -4,6 +4,7 @@ const indexRouter = Router();
 
 indexRouter.get("/", msgController.getAllMessages);
 indexRouter.get("/newmessage", msgController.newMessage);
+indexRouter.post("/newmessage", msgController.postNewMessage);
 module.exports = indexRouter;
 
 // newRouter.post("/", (req, res) => {
