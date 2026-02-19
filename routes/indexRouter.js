@@ -2,13 +2,9 @@ const { Router } = require("express");
 const msgController = require("../controllers/msgController");
 const indexRouter = Router();
 
-const { getMessageById } = require("../controllers/msgController");
-
-// indexRouter.get("/", (req, res) => {
-//   res.render("partials/form");
-// });
-
 indexRouter.get("/", msgController.getAllMessages);
+indexRouter.get("/newmessage", msgController.newMessage);
+module.exports = indexRouter;
 
 // newRouter.post("/", (req, res) => {
 //   let counter = messages.length - 1;
@@ -23,8 +19,6 @@ indexRouter.get("/", msgController.getAllMessages);
 // });
 
 // indexRouter.get("/:msgId", getMessageById);
-
-module.exports = indexRouter;
 
 // const functionRouter = (messages) => {
 //   const funcRouter = Router();

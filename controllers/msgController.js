@@ -1,7 +1,7 @@
 const dbQuery = require("../db/queries");
 const links = [
   { href: "/", text: "Index" },
-  { href: "newMessage", text: "New Message" },
+  { href: "/newmessage", text: "New Message" },
 ];
 
 async function getMessageById(req, res) {
@@ -14,7 +14,7 @@ async function getMessageById(req, res) {
 }
 
 async function getAllMessages(req, res) {
-  const messages = await dbQuery.getAllUsernames();
+  const messages = await dbQuery.getAllMessages();
 
   res.render("index", {
     title: "Index page",
@@ -22,4 +22,8 @@ async function getAllMessages(req, res) {
     links: links,
   });
 }
-module.exports = { getMessageById, getAllMessages };
+
+async function newMessage(req, res) {
+  res.render("newMessage", { title: "New Message", links: links });
+}
+module.exports = { getMessageById, getAllMessages, newMessage };
