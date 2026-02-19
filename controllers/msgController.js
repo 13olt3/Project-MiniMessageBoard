@@ -1,16 +1,25 @@
-const messages = require("../data/messages");
+const dbQuery = require("../db/queries");
+const links = [
+  { href: "/", text: "Index" },
+  { href: "newMessage", text: "New Message" },
+];
 
 async function getMessageById(req, res) {
   const { msgId } = req.params;
-
-  const message = await messages.getMessageById(Number(msgId));
 
   if (!message) {
     res.status(404).send("Message not found");
     return;
   }
-
-  res.send(message);
 }
 
-module.exports = { getMessageById };
+async function getAllMessages(req, res) {
+  const messages = await dbQuery.getAllUsernames();
+
+  res.render("index", {
+    title: "Index page",
+    messages: messages,
+    links: links,
+  });
+}
+module.exports = { getMessageById, getAllMessages };

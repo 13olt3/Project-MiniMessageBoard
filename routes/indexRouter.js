@@ -1,27 +1,30 @@
 const { Router } = require("express");
-const newRouter = Router();
-const { messages } = require("../data/messages");
+const msgController = require("../controllers/msgController");
+const indexRouter = Router();
+
 const { getMessageById } = require("../controllers/msgController");
 
-newRouter.get("/", (req, res) => {
-  res.render("partials/form");
-});
+// indexRouter.get("/", (req, res) => {
+//   res.render("partials/form");
+// });
 
-newRouter.post("/", (req, res) => {
-  let counter = messages.length - 1;
-  messages.push({
-    msgId: counter + 1,
-    text: req.body.messageText,
-    user: req.body.authorName,
-    added: new Date(),
-  });
+indexRouter.get("/", msgController.getAllMessages);
 
-  res.redirect("/");
-});
+// newRouter.post("/", (req, res) => {
+//   let counter = messages.length - 1;
+//   messages.push({
+//     msgId: counter + 1,
+//     text: req.body.messageText,
+//     user: req.body.authorName,
+//     added: new Date(),
+//   });
 
-newRouter.get("/:msgId", getMessageById);
+//   res.redirect("/");
+// });
 
-module.exports = newRouter;
+// indexRouter.get("/:msgId", getMessageById);
+
+module.exports = indexRouter;
 
 // const functionRouter = (messages) => {
 //   const funcRouter = Router();
